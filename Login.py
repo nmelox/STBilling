@@ -1,6 +1,9 @@
 import unittest
+import datetime
 from selenium import webdriver
-from selenium.webdriver.common.keys import keys
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
+from PageObjects.LoginPage import LoginPage
 
 class LoginSTBilling (unittest.TestCase):
     def setUp(self):
@@ -10,9 +13,11 @@ class LoginSTBilling (unittest.TestCase):
         driver = self.driver
         driver.get("http://tl-stbilling12:8080/")
         self.assertIn("ShopperTrak Billing", driver.title)
-        userName = driver.find_element_by_xpath('//*[@id="root"]/div/div[2]/div/div/form/table/tbody/tr[1]/td[2]/input')
-        userName.send_keys("nmelo@shoppertrak.com")
+        login = LoginPage(driver)
+        login.login()
+        driver.get_screenshot_as_file('C:\Automation\STBilling\Screenshots\Login_' + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M") + '.png')
 
     def tearDown(self):
+
         self.driver.close()
         self.driver.quit()
