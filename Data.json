@@ -1,0 +1,10 @@
+{
+  "User":{
+    "userName":"nmelo@shoppertrak.com",
+    "password":"passw0rd"
+  },
+  "BusinessUnit":{
+    "Id":"300000003692534",
+    "Name":"ShopperTrak Ltd (UK)"
+  }
+}
